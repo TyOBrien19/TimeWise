@@ -1,0 +1,87 @@
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-center headerStyle">
+      To Do List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+
+    <br>
+
+    <ion-list class="ion-padding">
+        <ion-item>
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item1"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item2"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item3"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item4"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item5"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item6"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item7"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item8"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item9"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item10"></ion-input>
+        </ion-item>
+
+        <ion-item class="">
+          <ion-checkbox></ion-checkbox>
+          <ion-input class="ion-padding" [(ngModel)]="item11"></ion-input>
+        </ion-item>
+
+
+    </ion-list>
+
+    <ion-button class="buttonStyle" (click)="clearInputs()">Clear</ion-button>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-header">
+    <ion-title>
+      <ion-button (click)="goToHomePage()" class="navigationStyle">To Do</ion-button>
+      <ion-button (click)="goToCalendarPage()" class="navigationStyle">Calendar</ion-button>
+      <ion-button (click)="goToNotesPage()" class="navigationStyle">Notes</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

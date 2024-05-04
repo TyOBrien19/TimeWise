@@ -1,0 +1,89 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+.custom-background {
+    --background: rgb(205, 232, 232);
+}
+
+.custom-header{
+    --background: rgb(97, 137,133);
+}
+
+.custom-list {
+    --background: rgb(205, 232, 232);
+    padding: 0;
+}
+
+.buttonStyle {
+    padding: 0px;
+    margin-left: 16.6%;
+    margin-right: 16.6%;
+    margin-top: 10%;
+    position: relative;
+    width: 66.66%;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    --background: rgb(255,139,148);
+  }
+  
+.headerStyle{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 200%;
+    font-weight: bold;
+  }
+  
+.navigationStyle{
+    padding: 4px;
+    margin: 0px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    --background: rgb(255,139,148);
+    width: 33.33%;
+  }
+
+  ion-card{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+
+  ion-datetime{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+
+
+
+
+
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+//@import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+//@import '@ionic/angular/css/palettes/dark.system.css';

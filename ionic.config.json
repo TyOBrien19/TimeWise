@@ -1,0 +1,7 @@
+{
+  "name": "TimeWise",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

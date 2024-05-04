@@ -1,0 +1,33 @@
+
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-center headerStyle">
+      Calendar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-card *ngIf="weatherData">
+    <ion-card-header>
+      Current Weather IN {{ weatherData.name }}
+    </ion-card-header>
+    <ion-card-content>
+      <p>Temperature: {{ weatherData.main.temp }}°C</p>
+      <p>Weather: {{ weatherData.weather[0].description }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-datetime size="cover"></ion-datetime>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar class="custom-header">
+    <ion-title>
+      <ion-button (click)="goToHomePage()" class="navigationStyle">To Do</ion-button>
+      <ion-button (click)="goToCalendarPage()" class="navigationStyle">Calendar</ion-button>
+      <ion-button (click)="goToNotesPage()" class="navigationStyle">Notes</ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
