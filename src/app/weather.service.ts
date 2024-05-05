@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable()
 export class WeatherService {
-  apiKey = 'e74a4693661dc1194ff64d5e5f01798f'; // Replace 'YOUR_API_KEY' with your actual OpenWeatherMap API key
+  apiKey = 'e74a4693661dc1194ff64d5e5f01798f';
+  apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  GetWeatherData(city: string): Observable<any> {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`;
-    return this.httpClient.get(apiUrl);
+  GetWeatherData(coordinates: { lat: number; long: number }): Observable<any> {
+    const { lat, long } = coordinates;
+    const url = `${this.apiUrl}?lat=${lat}&lon=${long}&appid=${this.apiKey}`;
+    return this.http.get(url);
   }
 }
+

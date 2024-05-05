@@ -39,7 +39,6 @@ export class HomePage  {
   item8: string = '';
   item9: string = '';
   item10: string = '';
-  item11: string = '';
   // Define other item variables if needed
 
   clearInputs() {
@@ -53,7 +52,6 @@ export class HomePage  {
     this.item8 = '';
     this.item9 = '';
     this.item10 = '';
-    this.item11 = '';
     // Clear other item variables if needed
   }
 

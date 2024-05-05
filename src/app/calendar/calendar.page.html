@@ -11,7 +11,7 @@
 
   <ion-card *ngIf="weatherData">
     <ion-card-header>
-      Current Weather IN {{ weatherData.name }}
+      Current Weather In {{ weatherData.name }}
     </ion-card-header>
     <ion-card-content>
       <p>Temperature: {{ weatherData.main.temp }}°C</p>
@@ -19,7 +19,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-datetime size="cover"></ion-datetime>
+  <ion-datetime size="cover" ></ion-datetime>
 </ion-content>
 
 <ion-footer>
