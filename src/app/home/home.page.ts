@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { CommonModule} from '@angular/common';
+import { Component, NgModule, OnInit } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 import { IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox } from '@ionic/angular/standalone';
 
 @Component({
@@ -8,51 +10,78 @@ import { IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, IonItem, IonLab
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, FormsModule]
+  imports: [IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, FormsModule, CommonModule]
 })
 
 export class HomePage  {
 
-  constructor(private router: Router) {}
+  todos: { text: string, isChecked: boolean }[] = [];
+
+  
+  constructor(private router: Router, private storage: Storage) {
+    this.storage.create().then(() => {
+      this.storage.get('todos').then((data) => {
+        this.todos = data || []; // Load notes from storage if available, otherwise use empty array
+      });
+    });
+  }
+
+  addNewNote() {
+    this.todos.push({ text: '', isChecked: false })
+    this.storeTodos();
+  }
+
+  clearInputs() {
+    this.todos = [];
+    this.storage.remove('todos');
+  }
+
+  deleteCheckbox(todo: { text: string, isChecked: boolean }) {
+    const index = this.todos.indexOf(todo);
+    if (index > -1) {
+      this.todos.splice(index, 1);
+    }
+    this.storeTodos();
+  }
+
+
+  ngOnInit() {
+    this.storage.create().then(() => {
+      // Get stored data or initialize empty list
+      this.getStoredTodos();
+    });
+  }
+
+  async getStoredTodos() {
+    const storedTodos = await this.storage.get('todos');
+    this.todos = storedTodos || []; // Initialize empty list if no data found
+  }
+
+  async storeTodos() {
+    this.storage.set('todos', this.todos);
+    this.storeTodos();
+  }
+
+  ////////////////////////////////////////////////////////////
 
   goToHomePage() 
   {
     this.router.navigate(['/home']);
+    this.storeTodos();
   }
 
   goToCalendarPage()
   {
     this.router.navigate(['/calendar']);
+    this.storeTodos();
   }
 
   goToNotesPage(){
     this.router.navigate(['/notes']);
+    this.storeTodos();
   }
   
-  item1: string = '';
-  item2: string = '';
-  item3: string = '';
-  item4: string = '';
-  item5: string = '';
-  item6: string = '';
-  item7: string = '';
-  item8: string = '';
-  item9: string = '';
-  item10: string = '';
   // Define other item variables if needed
 
-  clearInputs() {
-    this.item1 = '';
-    this.item2 = '';
-    this.item3 = '';
-    this.item4 = '';
-    this.item5 = '';
-    this.item6 = '';
-    this.item7 = '';
-    this.item8 = '';
-    this.item9 = '';
-    this.item10 = '';
-    // Clear other item variables if needed
-  }
 
 }

@@ -11,62 +11,22 @@
   <div id="container">
 
     <br>
-
     <ion-list class="ion-padding">
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item1"></ion-input>
-        </ion-item>
+  
+      <ion-item *ngFor="let todo of todos">
+        <ion-checkbox [(ngModel)]="todo.isChecked"></ion-checkbox>
+        <ion-input class="todoInput" [(ngModel)]="todo.text"></ion-input>
+        <ion-button (click)="deleteCheckbox(todo)" class="delete">Delete</ion-button>
+      </ion-item>
 
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item2"></ion-input>
-        </ion-item>
+  </ion-list>
 
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item3"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item4"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item5"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item6"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item7"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item8"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item9"></ion-input>
-        </ion-item>
-
-        <ion-item class="">
-          <ion-checkbox></ion-checkbox>
-          <ion-input class="ion-padding" [(ngModel)]="item10"></ion-input>
-        </ion-item>
-
-    </ion-list>
-
-    <ion-button class="buttonStyle" (click)="clearInputs()">Clear</ion-button>
+  <div class="button-container">
+    <ion-button class="todoButtons" (click)="addNewNote()">Add New Task</ion-button>
+    <ion-button class="todoButtons" (click)="clearInputs()">Clear</ion-button>
   </div>
+
+</div>
 
 </ion-content>
 

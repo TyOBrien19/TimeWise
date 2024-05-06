@@ -7,3 +7,24 @@ ion-input{
   font-size: 130%;
   color: rgb(61, 61, 61);
 }
+
+.todoButtons
+{
+    --background: rgb(255,139,148);
+    width: 150px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+.todoInput{
+  margin-left: 10px;
+}
+
+.delete{
+  --background: rgb(255,139,148);
+}

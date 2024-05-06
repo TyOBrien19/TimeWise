@@ -45,7 +45,7 @@
     margin-top: 5rem;
     margin-bottom: 2rem;
     position: relative;
-    width: 66.66%;
+    width: 33.33%;
     color: white;
     font-family:Georgia, 'Times New Roman', Times, serif;
     --background: rgb(255,139,148);
@@ -82,11 +82,13 @@
 
   textarea{
     width: 100%;
+    padding: 10px;
     font-weight: bold;
-    color: rgb(88, 88, 88);
     background: white;
     height: 7rem;
     overflow:scroll;
+    outline: none;
+    border-color: white;
   }
 
 

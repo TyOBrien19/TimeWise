@@ -14,8 +14,10 @@
     </ion-card-header>
     <ion-card-content>
       <textarea [(ngModel)]="note.content" placeholder="Note"></textarea>
-      <ion-button (click)="saveNotes()" class="noteButtons">Save Note</ion-button>
-      <ion-button (click)="deleteNote(i)" class="noteButtons">Delete</ion-button>
+      <div class="button-container">
+        <ion-button (click)="saveNotes()" class="noteButtons">Save Note</ion-button>
+        <ion-button (click)="deleteNote(i)" class="noteButtons">Delete</ion-button>
+      </div>
     </ion-card-content>
   </ion-card>
 
