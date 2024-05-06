@@ -2,9 +2,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HomePage } from './home/home.page';
 import { CalendarPage } from './calendar/calendar.page';
-import { EventPage } from './event/event.page';
 import { NotesPage } from './notes/notes.page';
-
+import { AddNotesPage } from './add-notes/add-notes.page';
 
 export const routes: Routes = [
   {
@@ -25,9 +24,10 @@ export const routes: Routes = [
     loadComponent: () => import('./notes/notes.page').then( m => m.NotesPage)
   },
   {
-    path: 'event',
-    loadComponent: () => import('./event/event.page').then( m => m.EventPage)
+    path: 'add-notes',
+    loadComponent: () => import('./add-notes/add-notes.page').then( m => m.AddNotesPage)
   },
+  
 ];
 
 @NgModule({

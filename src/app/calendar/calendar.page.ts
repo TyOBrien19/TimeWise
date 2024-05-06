@@ -31,8 +31,8 @@ export class CalendarPage {
     private router: Router,
     private weatherService: WeatherService
   ) {
-    this.lat = 53.2893692;
-    this.long = -9.0743048;
+    this.lat = 53.2745;
+    this.long = -9.049;
   }
 
   async getGPS() {
@@ -63,6 +63,7 @@ export class CalendarPage {
     this.getGPS(); // Call getGPS() when the component initializes to fetch weather based on current location
   }
   
+
 
   goToHomePage() 
   {
