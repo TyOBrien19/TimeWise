@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Storage } from '@ionic/storage-angular';
+
 import {IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, 
   IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, IonDatetime, 
-  IonCard, IonCardHeader, IonCardContent} from '@ionic/angular/standalone';
+  IonCard, IonCardHeader, IonCardContent, IonIcon } from '@ionic/angular/standalone';
 
 
 interface Note {
@@ -20,7 +21,7 @@ interface Note {
   standalone: true,
   imports: [IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, 
     IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, IonDatetime, 
-    IonCard, IonCardHeader, IonCardContent, FormsModule, CommonModule ],
+    IonCard, IonCardHeader, IonCardContent, FormsModule, CommonModule, IonIcon],
 })
 
 export class NotesPage {
@@ -50,13 +51,6 @@ export class NotesPage {
   }
 
 
-
-
-  
-  goToAddNotePage(){
-    this.router.navigate(['/add-notes']);
-  }
-
   goToHomePage() {
     this.router.navigate(['/home']);
   }
@@ -67,6 +61,10 @@ export class NotesPage {
 
   goToNotesPage() {
     this.router.navigate(['/notes']);
+  }
+
+  goToTimerPage(){
+    this.router.navigate(['/timer']);
   }
 
 }

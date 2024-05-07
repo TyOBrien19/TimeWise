@@ -3,14 +3,18 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
-import { IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox } from '@ionic/angular/standalone';
+import { IonHeader, IonFooter, IonToolbar, IonTitle, 
+  IonContent, IonItem, IonLabel, IonInput, IonButton, 
+  IonList, IonCheckbox } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, FormsModule, CommonModule]
+  imports: [IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, 
+    IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, 
+    FormsModule, CommonModule]
 })
 
 export class HomePage  {
@@ -80,8 +84,11 @@ export class HomePage  {
     this.router.navigate(['/notes']);
     this.storeTodos();
   }
+
+  goToTimerPage(){
+    this.router.navigate(['/timer']);
+  }
   
-  // Define other item variables if needed
 
 
 }

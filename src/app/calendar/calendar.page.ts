@@ -78,4 +78,10 @@ export class CalendarPage {
   goToNotesPage(){
     this.router.navigate(['/notes']);
   }
+
+  goToTimerPage(){
+    this.router.navigate(['/timer']);
+  }
+
+  
 }

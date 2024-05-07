@@ -1,8 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+
 import { HomePage } from './home/home.page';
 import { CalendarPage } from './calendar/calendar.page';
 import { NotesPage } from './notes/notes.page';
+import { TimerPage } from './timer/timer.page';
 
 export const routes: Routes = [
   {
@@ -21,6 +23,10 @@ export const routes: Routes = [
   {
     path: 'notes',
     loadComponent: () => import('./notes/notes.page').then( m => m.NotesPage)
+  },
+  {
+    path: 'timer',
+    loadComponent: () => import('./timer/timer.page').then( m => m.TimerPage)
   },
   
 ];

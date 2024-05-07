@@ -25,9 +25,6 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-.custom-background {
-    --background: rgb(205, 232, 232);
-}
 
 .custom-header{
     --background: rgb(97, 137,133);
@@ -55,6 +52,7 @@
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-size: 200%;
     font-weight: bold;
+    color: white;
   }
   
 .navigationStyle{
@@ -86,9 +84,10 @@
     font-weight: bold;
     background: white;
     height: 7rem;
-    overflow:scroll;
+    overflow: visible;
     outline: none;
-    border-color: white;
+    border-color: rgb(218, 216, 216);
+    border-radius: 10px;
   }
 
 
