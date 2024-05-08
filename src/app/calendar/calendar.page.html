@@ -9,32 +9,31 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <ion-card *ngIf="weatherData">
-
-    <ion-card-header>
-      Current Weather In {{ weatherData.name }}
+  <ion-card *ngIf="weatherData"> <!-- Displays weather data if there is any to display -->
+    <ion-card-header> <!-- Weather taken from OpenWeather API -->
+      Current Weather In {{ weatherData.name }} <!-- Displays the location taken from Geolocation -->
     </ion-card-header>
 
     <ion-card-content>
-      <p>Temperature: {{ weatherData.main.temp }}°C</p>
-      <p>Weather: {{ weatherData.weather[0].description }}</p>
+      <p>Temperature: {{ weatherData.main.temp }}°C</p> <!-- Displays temperature -->
+      <p>Weather: {{ weatherData.weather[0].description }}</p> <!-- Displays forecast -->
     </ion-card-content>
-
   </ion-card>
 
   <br>
 
-  <ion-datetime size="cover"></ion-datetime>
-
-  <ion-card class="keydates">
+  <ion-datetime size="cover"></ion-datetime> <!-- Ionic's ion-datetime displays a calendar -->
+                                             <!-- Reference: https://ionicframework.com/docs/api/datetime -->
+  <ion-card class="keydates"> <!-- Ionic's ion-card displays data in a styled box -->
     <ion-card-header>
       Note Key Dates
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content> 
+      <!-- A textarea that detects when data is entered -->
       <textarea [(ngModel)]="dates" style="height: 15rem"></textarea>
     </ion-card-content>
-
+      <!-- Button that when clicked calls upon storeDates to save whatever text is entered into the textarea above -->
     <ion-button class="saveButton" (click)="storeDates()">Save</ion-button>
   </ion-card>
 
@@ -44,6 +43,7 @@
 <ion-footer>
   <ion-toolbar class="custom-header">
     <ion-title>
+      <!-- Navigation Buttons -->
       <ion-button (click)="goToHomePage()" class="navigationStyle">List</ion-button>
       <ion-button (click)="goToCalendarPage()" class="navigationStyle">Agenda</ion-button>
       <ion-button (click)="goToTimerPage()" class="navigationStyle">Timer</ion-button>

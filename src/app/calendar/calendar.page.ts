@@ -24,10 +24,11 @@ import {IonHeader, IonFooter, IonToolbar, IonTitle, IonContent,
 })
 
 export class CalendarPage {
-  weatherData: any;
-  lat: number;
-  long: number;
-  dates: {}[] = [];
+  /* Variables */
+  weatherData: any; /* Stores weather data of 'any' type */
+  lat: number; 
+  long: number; 
+  dates: {}[] = []; /* An array to store weather data */
 
   constructor(
     private router: Router,
@@ -35,16 +36,20 @@ export class CalendarPage {
     private storage: Storage
 
   ) {
+    /* Sets default location to Eyre Squares coordinates */
     this.lat = 53.2745;
     this.long = -9.049;
 
+    /* Initilises Ionics storage */
     this.storage.create().then(() => {
       this.storage.get('dates').then((data) => {
-        this.dates = data || [];
+        this.dates = data || []; /* Gets data if there is none is creates an emoty array */
       });
     });
   }
 
+  /* Gets users location */
+  /* Reference: Lecture Notes */
   async getGPS() {
     const coordinates = await Geolocation.getCurrentPosition();
     this.lat = coordinates.coords.latitude;

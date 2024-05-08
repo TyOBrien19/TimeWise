@@ -1,8 +1,3 @@
-#container list{
-  padding: 15px;
-  color: aqua;
-}
-
 ion-input{
   font-size: 125%;
   font-family:Arial, Helvetica, sans-serif;
@@ -13,13 +8,14 @@ ion-input{
 {
     --background: rgb(255,139,148);
     width: 150px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    margin-top: 0px;
+    padding-bottom: 5px;
 }
 
 .button-container {
     display: flex;
     justify-content: center;
+    margin-top: 5px;
   }
 
 .todoInput{

@@ -9,9 +9,7 @@
 <ion-content [fullscreen]="true">
 
   <div id="container">
-
-    <br>
-    <ion-list class="ion-padding">
+    <ion-list>
   
       <ion-item *ngFor="let todo of todos">
         <ion-checkbox [(ngModel)]="todo.isChecked"></ion-checkbox>
