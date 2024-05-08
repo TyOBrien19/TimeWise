@@ -5,6 +5,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from '../weather.service';
 import { Geolocation } from '@capacitor/geolocation';
+import { Storage } from '@ionic/storage-angular';
 
 import {IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, 
   IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, IonDatetime, 
@@ -26,13 +27,22 @@ export class CalendarPage {
   weatherData: any;
   lat: number;
   long: number;
+  dates: {}[] = [];
 
   constructor(
     private router: Router,
-    private weatherService: WeatherService
+    private weatherService: WeatherService,
+    private storage: Storage
+
   ) {
     this.lat = 53.2745;
     this.long = -9.049;
+
+    this.storage.create().then(() => {
+      this.storage.get('dates').then((data) => {
+        this.dates = data || [];
+      });
+    });
   }
 
   async getGPS() {
@@ -47,6 +57,7 @@ export class CalendarPage {
       const weatherData = await this.weatherService.GetWeatherData({ lat: this.lat, long: this.long }).toPromise();
       const temperatureCelsius = (weatherData.main.temp - 273.15).toFixed(2);
       this.weatherData = {
+
         ...weatherData,
         main: {
           ...weatherData.main,
@@ -59,8 +70,22 @@ export class CalendarPage {
     }
   }
 
+
+  async getStoredDates() {
+    const storedDates = await this.storage.get('dates');
+    this.dates = storedDates || [];
+  }
+
+  storeDates() {
+    this.storage.set('dates', this.dates);
+    this.storeDates();
+  }
+
   ngOnInit() {
-    this.getGPS(); // Call getGPS() when the component initializes to fetch weather based on current location
+    this.getGPS();
+    this.storage.create().then(() => {
+      this.getStoredDates();
+    });
   }
   
 

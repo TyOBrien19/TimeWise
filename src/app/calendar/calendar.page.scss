@@ -1,9 +1,13 @@
-.GpsButton{
-    color: white;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    --background: rgb(255,139,148);   
+.keydates{
+    margin-top: 2rem;
+    font-size: 20px;
 }
 
-h3{
-    font-weight: 1000;
+.saveButton{
+    width: 50%;
+    text-align: center;
+    --background: rgb(255,139,148);
+    margin-bottom: 10px;
+    margin-left: 25%;
 }
+

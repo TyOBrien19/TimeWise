@@ -9,6 +9,31 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-card class="timer timer-container">
+    <h2>Study Session</h2>
+    <div class="timer">{{ calculateTime().minutesStudy }}:{{ calculateTime().secondsStudy }}</div>
+  </ion-card>
+
+  <div class="timer-container">
+    <ion-button (click)="startTimer25()" class="navigationStyle">Start</ion-button>
+    <ion-button (click)="pauseTimer25()" class="navigationStyle">Pause</ion-button>
+    <ion-button (click)="resetTimer25()" class="navigationStyle">Reset</ion-button>
+  </div>
+
+  
+
+  <ion-card class="timer timer-container">
+    <h2>Break</h2>
+    <div class="timer">{{ calculateTime().minutesBreak }}:{{ calculateTime().secondsBreak }}</div>
+  </ion-card>
+
+  <div class="timer-container">
+    <ion-button (click)="startTimer5()" class="navigationStyle">Start</ion-button>
+    <ion-button (click)="pauseTimer5()" class="navigationStyle">Pause</ion-button>
+    <ion-button (click)="resetTimer5()" class="navigationStyle">Reset</ion-button>
+  </div>
+
+
 </ion-content>
 
 
@@ -17,8 +42,9 @@
 <ion-footer>
   <ion-toolbar class="custom-header">
     <ion-title>
-      <ion-button (click)="goToHomePage()" class="navigationStyle">To Do</ion-button>
-      <ion-button (click)="goToCalendarPage()" class="navigationStyle">Calendar</ion-button>
+      <ion-button (click)="goToHomePage()" class="navigationStyle">List</ion-button>
+      <ion-button (click)="goToCalendarPage()" class="navigationStyle">Agenda</ion-button>
+            <ion-button (click)="goToTimerPage()" class="navigationStyle">Timer</ion-button>
       <ion-button (click)="goToNotesPage()" class="navigationStyle">Notes</ion-button>
     </ion-title>
   </ion-toolbar>

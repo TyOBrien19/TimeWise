@@ -16,7 +16,6 @@
       <ion-item *ngFor="let todo of todos">
         <ion-checkbox [(ngModel)]="todo.isChecked"></ion-checkbox>
         <ion-input class="todoInput" [(ngModel)]="todo.text"></ion-input>
-        <ion-button (click)="deleteCheckbox(todo)" class="delete">Delete</ion-button>
       </ion-item>
 
   </ion-list>
@@ -28,13 +27,15 @@
 
 </div>
 
+
 </ion-content>
 
 <ion-footer>
   <ion-toolbar class="custom-header">
     <ion-title>
-      <ion-button (click)="goToHomePage()" class="navigationStyle">To Do</ion-button>
-      <ion-button (click)="goToCalendarPage()" class="navigationStyle">Calendar</ion-button>
+      <ion-button (click)="goToHomePage()" class="navigationStyle">List</ion-button>
+      <ion-button (click)="goToCalendarPage()" class="navigationStyle">Agenda</ion-button>
+      <ion-button (click)="goToTimerPage()" class="navigationStyle">Timer</ion-button>
       <ion-button (click)="goToNotesPage()" class="navigationStyle">Notes</ion-button>
     </ion-title>
   </ion-toolbar>

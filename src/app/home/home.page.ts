@@ -3,18 +3,19 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
+
 import { IonHeader, IonFooter, IonToolbar, IonTitle, 
   IonContent, IonItem, IonLabel, IonInput, IonButton, 
-  IonList, IonCheckbox } from '@ionic/angular/standalone';
+  IonList, IonCheckbox, IonIcon, IonTabButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, 
+  imports: [IonTabButton, IonHeader, IonFooter, IonToolbar, IonTitle, IonContent, 
     IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, 
-    FormsModule, CommonModule]
+    FormsModule, CommonModule, IonIcon]
 })
 
 export class HomePage  {
@@ -39,15 +40,6 @@ export class HomePage  {
     this.todos = [];
     this.storage.remove('todos');
   }
-
-  deleteCheckbox(todo: { text: string, isChecked: boolean }) {
-    const index = this.todos.indexOf(todo);
-    if (index > -1) {
-      this.todos.splice(index, 1);
-    }
-    this.storeTodos();
-  }
-
 
   ngOnInit() {
     this.storage.create().then(() => {
