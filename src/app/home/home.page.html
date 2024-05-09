@@ -6,30 +6,34 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
 
+  <!-- Create a new checkbox when button is pressed -->
   <div id="container">
     <ion-list>
-  
+      <!-- Repeat for however many todos there are -->
       <ion-item *ngFor="let todo of todos">
+        <!-- Keeps track of checkbox state -->
         <ion-checkbox [(ngModel)]="todo.isChecked"></ion-checkbox>
+        <!-- Keeps track of input -->
         <ion-input class="todoInput" [(ngModel)]="todo.text"></ion-input>
       </ion-item>
+    </ion-list>
 
-  </ion-list>
-
-  <div class="button-container">
-    <ion-button class="todoButtons" (click)="addNewNote()">Add New Task</ion-button>
-    <ion-button class="todoButtons" (click)="clearInputs()">Clear</ion-button>
+    <div class="button-container">
+      <!-- Buttons that call on functions when clicked -->
+      <ion-button class="todoButtons" (click)="addNewNote()">Add New Task</ion-button>
+      <ion-button class="todoButtons" (click)="clearInputs()">Clear</ion-button>
+    </div>
   </div>
-
-</div>
 
 
 </ion-content>
 
 <ion-footer>
   <ion-toolbar class="custom-header">
+    <!-- Navigation buttons -->
     <ion-title>
       <ion-button (click)="goToHomePage()" class="navigationStyle">List</ion-button>
       <ion-button (click)="goToCalendarPage()" class="navigationStyle">Agenda</ion-button>

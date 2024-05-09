@@ -17,26 +17,28 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader,
 
 
 export class TimerPage {
-  studyTime: number = 25 * 60;
-  breakTime: number = 5 * 60;
+  studyTime: number = 25 * 60; //25 minutes in seconds
+  breakTime: number = 5 * 60; //5 minutes in seconds
   timerStudy: any;
   timerBreak: any;
 
 
   //Reference: https://www.youtube.com/watch?v=cDZ2HjBOxrw&t=822s
-  //inspiration, instead of having a stopwatch its a timer that counts
-  //down for 25 minutes
+  //inspiration, instead of having a stopwatch its a timer that counts down from 25 minutes
+  //Uses Ionics built in setInterval, clearInterval
 
   startTimer25() {
+    //If the timer is running and user clicks start it wont start a new interval
     if (this.timerStudy) {
       clearInterval(this.timerStudy);
     }
+    //Else new timer started 
     this.timerStudy = setInterval(() => {
-      this.studyTime--;
-      if (this.studyTime <= 0) {
+      this.studyTime--; //Minuses study time every iteration
+      if (this.studyTime <= 0) { //Resets timer once it is done
         this.resetTimer25();
       }
-    }, 1000);
+    }, 1000); //Counts down in milliseconds
   }
 
   pauseTimer25() {
@@ -51,7 +53,7 @@ export class TimerPage {
   }
 
 
-  startTimer5() {
+  startTimer5() { //Same mechanism as abpve but for 5 minutes
     if (this.timerBreak) {
       clearInterval(this.timerBreak);
     }
@@ -74,16 +76,25 @@ export class TimerPage {
     this.breakTime = 5 * 60;
   }
 
+  
+//Timers are counting down from the total seconds of each timer
+//This function fromats it into minutes and seconds for being displayed
+//Math.floor makes sure we are using whole numbers
+//.slice(-2) is to ensure that even when the time is e.g. 22 minutes it will display 22:00 with 2 digits after the colon
+
   calculateTime(): { minutesStudy: number, secondsStudy: string, minutesBreak: number, secondsBreak: string } {
     const minutesStudy = Math.floor(this.studyTime / 60);
     const secondsStudy = ('0' + (this.studyTime % 60)).slice(-2);
     const minutesBreak = Math.floor(this.breakTime / 60);
     const secondsBreak = ('0' + (this.breakTime % 60)).slice(-2);
+    
     return { minutesStudy, secondsStudy, minutesBreak, secondsBreak };
   }
 
 
   constructor(private router: Router) { }
+
+  //Navigation
 
   goToHomePage() 
   {

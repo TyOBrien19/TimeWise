@@ -32,11 +32,14 @@ export class HomePage  {
   }
 
   addNewNote() {
+    //When called it creates a new (unchecked) checkbox
     this.todos.push({ text: '', isChecked: false })
+    //Saves new note
     this.storeTodos();
   }
 
   clearInputs() {
+    //Clears todos array to null and clears storage
     this.todos = [];
     this.storage.remove('todos');
   }
@@ -49,6 +52,7 @@ export class HomePage  {
   }
 
   async getStoredTodos() {
+    //Gets storage
     const storedTodos = await this.storage.get('todos');
     this.todos = storedTodos || []; // Initialize empty list if no data found
   }
@@ -58,7 +62,7 @@ export class HomePage  {
     this.storeTodos();
   }
 
-  ////////////////////////////////////////////////////////////
+  //Navigation
 
   goToHomePage() 
   {

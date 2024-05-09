@@ -8,9 +8,11 @@
 
 
 <ion-content [fullscreen]="true">
-
+  <!-- Pormordo Studying Method: Work 25mins Break for 5mins-->
   <ion-card class="timer timer-container">
+    <!-- HTML Heading 2 -->
     <h2>Study Session</h2>
+    <!-- Displays Minutes and seconds for the timer, this data is tracked as it changes every second -->
     <div class="timer">{{ calculateTime().minutesStudy }}:{{ calculateTime().secondsStudy }}</div>
   </ion-card>
 
@@ -24,6 +26,7 @@
 
   <ion-card class="timer timer-container">
     <h2>Break</h2>
+    <!-- Displaying the 5 minute break -->
     <div class="timer">{{ calculateTime().minutesBreak }}:{{ calculateTime().secondsBreak }}</div>
   </ion-card>
 
@@ -42,9 +45,10 @@
 <ion-footer>
   <ion-toolbar class="custom-header">
     <ion-title>
+      <!-- Navigation Buttons -->
       <ion-button (click)="goToHomePage()" class="navigationStyle">List</ion-button>
       <ion-button (click)="goToCalendarPage()" class="navigationStyle">Agenda</ion-button>
-            <ion-button (click)="goToTimerPage()" class="navigationStyle">Timer</ion-button>
+      <ion-button (click)="goToTimerPage()" class="navigationStyle">Timer</ion-button>
       <ion-button (click)="goToNotesPage()" class="navigationStyle">Notes</ion-button>
     </ion-title>
   </ion-toolbar>

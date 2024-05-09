@@ -10,10 +10,13 @@
 <ion-content [fullscreen]="true">
   <ion-card *ngFor="let note of notes; let i = index">
     <ion-card-header>
+      <!-- Keeps track of Title entered, placeholder prompting a user to enter a note title -->
       <ion-input [(ngModel)]="note.title" placeholder="Note Title"></ion-input>
     </ion-card-header>
     <ion-card-content>
+      <!-- Keeps track of Note entered, placeholder prompting a user to enter a note -->
       <textarea [(ngModel)]="note.content" placeholder="Note"></textarea>
+      <!-- Save and delete buttons within the card so that users can delete specific notes -->
       <div class="button-container">
         <ion-button (click)="saveNotes()" class="noteButtons">Save Note</ion-button>
         <ion-button (click)="deleteNote(i)" class="noteButtons">Delete</ion-button>
@@ -30,6 +33,7 @@
 <ion-footer>
   <ion-toolbar class="custom-header">
     <ion-title>
+      <!-- Navigation Buttons -->
       <ion-button (click)="goToHomePage()" class="navigationStyle">List</ion-button>
       <ion-button (click)="goToCalendarPage()" class="navigationStyle">Agenda</ion-button>
       <ion-button (click)="goToTimerPage()" class="navigationStyle">Timer</ion-button>

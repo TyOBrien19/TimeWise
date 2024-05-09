@@ -59,10 +59,15 @@ export class CalendarPage {
 
   async getWeatherByCoordinates() {
     try {
+      //Calls upon the weather.service.ts which holds the API, passess in the lat and long from Geolocation
       const weatherData = await this.weatherService.GetWeatherData({ lat: this.lat, long: this.long }).toPromise();
+      //Changes temperature from kelvin to celsius
       const temperatureCelsius = (weatherData.main.temp - 273.15).toFixed(2);
       this.weatherData = {
-
+      //Spread operator unpacks data from API to get specific data that we need
+      //Spread Refrence: https://www.w3schools.com/howto/howto_js_spread_operator.asp
+                      // https://stackabuse.com/spread-operator-in-javascript/
+                      
         ...weatherData,
         main: {
           ...weatherData.main,
@@ -70,12 +75,15 @@ export class CalendarPage {
         }
       };
       console.log(this.weatherData);
+
+      //If getWeatherByCoordinates fails logs it to console
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
   }
 
 
+  //Gets storage and places it in the storedDates array
   async getStoredDates() {
     const storedDates = await this.storage.get('dates');
     this.dates = storedDates || [];
@@ -87,6 +95,7 @@ export class CalendarPage {
   }
 
   ngOnInit() {
+    //When app runs get Geolocation and get storage
     this.getGPS();
     this.storage.create().then(() => {
       this.getStoredDates();
@@ -94,7 +103,7 @@ export class CalendarPage {
   }
   
 
-
+  //Navigation using ionic 'Router' 
   goToHomePage() 
   {
     this.router.navigate(['/home']);

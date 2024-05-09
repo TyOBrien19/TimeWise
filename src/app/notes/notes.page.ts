@@ -8,7 +8,7 @@ import {IonHeader, IonFooter, IonToolbar, IonTitle, IonContent,
   IonItem, IonLabel, IonInput, IonButton, IonList, IonCheckbox, IonDatetime, 
   IonCard, IonCardHeader, IonCardContent, IonIcon } from '@ionic/angular/standalone';
 
-
+//An interface that stores a notes title and string 
 interface Note {
     title: string;
     content: string;
@@ -34,7 +34,8 @@ export class NotesPage {
     });
   }
 
-  notes: Note[] = []; // Array to store note objects
+  notes: Note[] = []; // Array to store note objects using the interface 
+                      //to store both title and content for each array index
 
   addNewNote() {
     this.notes.push({ title: '', content: '' });
@@ -51,6 +52,7 @@ export class NotesPage {
   }
 
 
+  //Navigation
   goToHomePage() {
     this.router.navigate(['/home']);
   }
